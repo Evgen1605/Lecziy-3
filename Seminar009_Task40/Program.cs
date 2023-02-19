@@ -10,7 +10,7 @@ Console.Clear();
 
 Console.Write("Введите стороны треугольника через пробел: ");
 
-string[] st = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries)!; //считал строку и разделил её на массив
+string[] st = Console.ReadLine()!.Split(' ', StringSplitOptions.RemoveEmptyEntries); //считал строку и разделил её на массив
 
 int a = int.Parse(st[0]), b = int.Parse(st[1]), c = int.Parse(st[2]);
 
