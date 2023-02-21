@@ -10,7 +10,7 @@ string text = "— Я думаю, — сказал князь, улыбаясь,
 
 string Replace(string text, char oldValue, char newValue ){
 
-    string result = String.Empty;
+    string result = String.Empty; // пустая строка
     int length = text.Length;
     for (int i = 0; i < length; i++)
     {
