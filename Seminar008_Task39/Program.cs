@@ -15,35 +15,38 @@ ArrayRevers2(array);
 Console.WriteLine($"[{String.Join(", ", array)}]");
 
 
-int[] GetArray(int size, int minValue, int maxValue)
+int[] GetArray(int size, int minValue, int maxValue)// функция для заполнения массива случайными числами
 {
-  int[] res = new int[size];
+  int[] res = new int[size];// объявляем массив
 
   for (int i = 0; i < size; i++)
   {
-    res[i] = new Random().Next(minValue, maxValue + 1);
+    res[i] = new Random().Next(minValue, maxValue + 1);// заполняем массив рандомными числами
   }
   return res;
 }
 
-
-int[] ArrayRevers1(int[] inArray)
+// переворачиваем массив 1 способом
+int[] ArrayRevers1(int[] inArray)// функция на вход принимает массив 
 {
 
-  int[] result = new int[inArray.Length];
-  for (int i = 0; i < inArray.Length; i++)
+  int[] result = new int[inArray.Length];// создаём массив на длину массива
+  for (int i = 0; i < inArray.Length; i++)// циклом перебираем все элементы массива
   {
-    result[i] = inArray[inArray.Length - 1 - i];
+    result[i] = inArray[inArray.Length - 1 - i];// result[i]- записываем массив элементов, которые находятся с конца массива
   }
-  return result;
+  return result;// возвращаем маассив после прохождения всего цикла
 }
 
+// переворачиваем массив 2 способом он ничего не возвращает, но меняет массив
 void ArrayRevers2(int[] inArray){
 
-  for (int i = 0; i < inArray.Length / 2; i++) //Перебераем массвив до середины
+  for (int i = 0; i < inArray.Length / 2; i++) //Перебераем массвив до середины потому что если бы дошли до середины, он опять бы переворачивал его обратно [1,2,3,4]
   {
-    int k = inArray[i];
-    inArray[i] = inArray[inArray.Length - 1 - i];
-    inArray[inArray.Length - 1 - i] = k;
+    int k = inArray[i];// в переменную сначала записываем 1 элемент индекс[0] k=1
+    inArray[i] = inArray[inArray.Length - 1 - i];// записываем последний элемент индекс[3] меняем первый и последний элементы 
+    inArray[inArray.Length - 1 - i] = k;// записываем в переменную последний элемент k=4 
+
+//  (inArray[inArray.Length - 1 - i], inArray[i]) = (inArray[i], inArray[inArray.Length - 1 - i]);//короткая запись
   }
 }

@@ -10,20 +10,20 @@
 Console.Clear();
 Console.Write("Введите число: ");
 int number = int.Parse(Console.ReadLine()!);
-string res = DecToNum(number, 2);
+string res = DecToNum(number, 2);// в этой строке вторым аргументом задаём в каком исчислении будут переводится (8, 10, 16, и т.д)
 
-Console.WriteLine($"{number}->{res}");
+Console.WriteLine($"{number} -> {res}");
 
 //Универсальный математический для перевода из 10 в любую
-string DecToNum(int decNumber, int otherSystem){
-
-  string res = "";
-  string nums = "0123456789ABCDEF";
-  while (decNumber > 0)
+string DecToNum(int decNumber, int otherSystem)// функция возвращает строку, на вход принимает, десятичное число и какое будет после перевода(двоичная или 16-ричная)
+{
+  string res = "";// строка для результата
+  string nums = "0123456789ABCDEF";// строка с цифрами
+  while (decNumber > 0)// запускаем цикл пока данное число больше 0
   {
-    int ost = decNumber / otherSystem;
-    res = nums[decNumber - otherSystem * ost] + res;
-    decNumber /= otherSystem;
+    int ost = decNumber / otherSystem;// ищем целую часть
+    res = nums[decNumber - otherSystem * ost] + res;// по целой части ищем символ которй нужно добавить в начало строки, добовляем результат соответствующий символ 
+    decNumber /= otherSystem;// меняем строку на систему которую указали
   }
   return res;
 }

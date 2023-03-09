@@ -7,23 +7,25 @@ Console.WriteLine($"[{String.Join(", ", array)}]"); //Выводим случа�
 
 Console.WriteLine($"Скопированный массив [{String.Join(", ", CopyArray(array))}]");
 
-int[] GetArray(int size, int minValue, int maxValue)
+
+int[] GetArray(int size, int minValue, int maxValue)// функция для заполнения массива случайными числами
 {
-  int[] res = new int[size];
+  int[] res = new int[size];// объявляем массив
 
   for (int i = 0; i < size; i++)
   {
-    res[i] = new Random().Next(minValue, maxValue + 1);
+    res[i] = new Random().Next(minValue, maxValue + 1);// заполняем массив рандомными числами
   }
   return res;
 }
 
+
 int[] CopyArray(int[] inArray)
 {
-  int[] result = new int[inArray.Length];
-  for (int i = 0; i < inArray.Length; i++)
+  int[] result = new int[inArray.Length];// создали массив целых чисел на тоже кол-во элементов что и массив который заполница случайными числами
+  for (int i = 0; i < inArray.Length; i++)// циклом проходим по массиву
   {
-    result[i] = inArray[i];
+    result[i] = inArray[i];// на каждой итерации поочерёдно записывем в наш массив для результата
   }
-  return result;
+  return result;// возвращаем скопированный массив
 }

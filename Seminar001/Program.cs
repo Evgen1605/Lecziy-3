@@ -7,13 +7,13 @@ Console.Clear();
 Console.Write("Введите число ");
 int a = int.Parse(Console.ReadLine()!);
 
-int GetSum(int limit){
+int GetSum(int limit){// создаём функцию, котороя возвращает целое число и до какого момента считать наприменр 5
   int sum = 0;
-  for (int i = 1; i <= limit; i++)
+  for (int i = 1; i <= limit; i++)// создаём цикл который перебирает все числа от 1 до числа которое например задал пользователь (5)
   {
-    sum += i;
+    sum += i;// прибаляем каждое число от 1 до лимита (5) 
   }
-  return sum;
+  return sum;// возвращаем посчитанную сумму
 }
 
-Console.WriteLine($"сумма числа {a} рана {GetSum(a)}");
+Console.WriteLine($"Сумма от 1 до {a} равна {GetSum(a)}");// выводим в консоль где GetSum(a)- это функия с аргументом а, которое в этом методе посчитано

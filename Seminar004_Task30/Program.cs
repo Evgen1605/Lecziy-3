@@ -6,22 +6,25 @@
 
 Console.Clear();
 Console.Write("Введите число: ");
-int num = 8;
-int[] array = GetBinArray(num);
-Console.Write($"[{String.Join(", ", array)}]");
-// Console.Write($"[");
-// for (int i = 0; i < num - 1; i++)
+int num = int.Parse(Console.ReadLine()!);
+// int num = 8;
+int[] array = GetBinArray(num);// в переменную array кладём результат работы функции 
+Console.Write($"[{String.Join(", ", array)}]");// метод .Join первым аргументом (в кавычках) принимает то что хотим вывести, например вместо запятой можно постаить любой знак ("! ", "@ ", "* ", "^ " и т.д)
+
+// выводим наш массив через цикл, если не использовать String.Join
+// Console.Write($"[");// для красоты, выводим в косоль 
+// for (int i = 0; i < num - 1; i++)// циклом перебираем элементы массива
 // {
-//   Console.Write($"{array[i]}, ");
+//   Console.Write($"{array[i]}, ");// выводим в консоль наш массив с элементами
 // }
-// Console.Write($"{array[num - 1]}]");
+// Console.Write($"{array[num - 1]}]");// такой вывод нужен чтобы не выводил лишние знаки в конце например([1, 1, 0, 0, ])
 
 
-int[] GetBinArray(int size){
-  int[] result = new int [size];
-  for (int i = 0; i < size; i++)
+int[] GetBinArray(int size){// функция на вход принимает целое число (int size)- которое отвечает за длину массива, возвращает массив целых чисел int[]
+  int[] result = new int [size];// создали массив на [size]- элементов
+  for (int i = 0; i < size; i++)// циклом перебираем все элементы
   {
-    result[i] = new Random().Next(2);
+    result[i] = new Random().Next(2);// в result кладём рандомные числа от 0 до 1 (на каждый элемент нашего массива рандомно кладём 0 и 1)  
   }
-  return result;
+  return result;// возвращаем результат после того как закончится цикл
 }

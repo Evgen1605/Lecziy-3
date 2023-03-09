@@ -1,26 +1,28 @@
 ﻿// Задача 32: Напишите программу замена элементов массива: положительные элементы замените на соответствующие отрицательные, и наоборот.
+Console.Clear();
 
-int[] GetArray(int size, int minValue, int maxValue)
+int[] GetArray(int size, int minValue, int maxValue)// функция для заполнения массива случайными числами
 {
-  int[] res = new int[size];
+  int[] res = new int[size];// объявляем массив
 
   for (int i = 0; i < size; i++)
   {
-    res[i] = new Random().Next(minValue, maxValue + 1);
+    res[i] = new Random().Next(minValue, maxValue + 1);// заполняем массив рандомными числами
   }
   return res;
 }
 
+
 int[] array = GetArray(6, -10, 10);
 Console.WriteLine($"[{String.Join(", ", array)}]");
 
-int[] InversArray(int[] array)
+int[] InversArray(int[] array)// создаём метод который будет заменять положительные на отрицательные и наоборот например [1, -2, 3, -4, 5] -> [-1, 2, -3, 4, -5]
 {
-  for (int i = 0; i < array.Length; i++)
+  for (int i = 0; i < array.Length; i++)// циклом перебираем все элементы массива
   {
-    array[i] *= -1; 
+    array[i] *= -1;// при каждой итерации элемент массива * на -1, если (1 * -1= -1), (-2 * -1 = 2) и т.д
   }
-  return array;
+  return array;// возвращаем наш массив после прохождения всего цикла
 }
 
-Console.WriteLine($"[{String.Join(", ", InversArray(array))}]");
+Console.WriteLine($"[{String.Join(", ", InversArray(array))}]");// выводим в консоль перевёрнутый массив

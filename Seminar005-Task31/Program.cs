@@ -1,38 +1,43 @@
 ﻿// Задача 31: Задайте массив из 12 элементов, заполненный случайными числами из промежутка [-9, 9]. Найдите сумму отрицательных и положительных элементов массива.
+Console.Clear();
 
-int[] GetArray(int size, int minValue, int maxValue)
+int[] GetArray(int size, int minValue, int maxValue)// функция для заполнения массива случайными числами
 {
-    int[] res = new int[size];
+    int[] res = new int[size];// объявляем массив
 
     for (int i = 0; i < size; i++)
     {
-        res[i] = new Random().Next(minValue, maxValue + 1);
+        res[i] = new Random().Next(minValue, maxValue + 1);// заполняем массив рандомными числами
     }
     return res;
 }
 
 int[] array = GetArray(12, -9, 9);
-Console.WriteLine($"[{String.Join(", ", array)}]");
+Console.WriteLine($"[{String.Join(", ", array)}]");// выводим случайный массив 
 
-int positiveSum = 0;
-int negativeSum = 0;
+int positiveSum = 0;// создали переменную в которую будем класть сумму положительных элементов случайного массива
+int negativeSum = 0;// создали переменную в которую будем класть сумму отрицательных элементов случайного массива
 
-foreach (int el in array) // Это короткая запись перебора массива
+foreach (int el in array) // Это короткая запись перебора массива, foreach - используется только для перебора массива, но ни как его не может менять в переменную el будем складывать элементы нашего массива
 {
-  positiveSum += el > 0 ? el : 0;
+  positiveSum += el > 0 ? el : 0;// короткая запись проверки if else
   negativeSum += el < 0 ? el : 0;
 }
 
-// for (int i = 0; i < array.Length; i++) // Длинная запись
+// for (int i = 0; i < array.Length; i++) // Длинная запись циклом проходим по нашему массиву пока он не закончится, (в нашем случае, array.Length = 12)
 // {
-//   int el = array[i];
-//   if (el > 0)
+//   int el = array[i];в переменную el будем складывать элементы нашего массива
+//   if (el > 0)// создаём проверку если элемент больше 0
 //   {
-//     positiveSum += el;
+//     positiveSum += el; //то в переменную при каждей итерации будем класть положительные элементы
+//   }else{
+//     positiveSum += 0;// иначе прибавляем 0
 //   }
-//   if (el < 0)
+//   if (el < 0)// проверяем если элементы < 0 (отрицательные)
 //   {
-//     negativeSum += el;
+//     negativeSum += el;// то при каждой итерации складывакм отрицательные числа
+//   }else{
+//     negativeSum += 0;
 //   }
 // }
 

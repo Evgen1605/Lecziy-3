@@ -6,14 +6,14 @@
 
 Console.Clear();
 Console.Write("Ввдите число: ");
-int s = int.Parse(Console.ReadLine()!);
+int num = int.Parse(Console.ReadLine()!);
 
-int Factorial(int count){
-  int n = 1;
-  for (int i = 2; i <= count; i++)
+int Factorial(int n){
+  int result = 1;// переменной задаём значение 1 потому что если задать 0, то потом при умножении на 0 результат всегда будет 0
+  for (int i = 2; i <= n; i++)// счётчик i=2, чтобы лишний раз не прогонять цикл, потому что если заданное число меньше 2, то результат и так 1 например n=1 , сравниваем 2 <= 1, нет, то сразу выводим результат
   {
-    n *= i;
+    result *= i;// пример result = 6 * 4 = 24 каждый раз заданное число умножается на предыдущее 
   }
-  return n;
+  return result;// возвращаем результат 
 }
-Console.WriteLine($"Произведение {s} -> {Factorial(s)}");
+Console.WriteLine($"Произведение {num} -> {Factorial(num)}");

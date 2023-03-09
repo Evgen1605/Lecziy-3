@@ -12,16 +12,17 @@ Console.Write("Введите стороны треугольника через
 
 string[] st = Console.ReadLine()!.Split(' ', StringSplitOptions.RemoveEmptyEntries); //считал строку и разделил её на массив
 
-int a = int.Parse(st[0]), b = int.Parse(st[1]), c = int.Parse(st[2]);
+int a = int.Parse(st[0]), b = int.Parse(st[1]), c = int.Parse(st[2]);// создали переменные где складываем индексы массива
 
-bool isTriangle(int a, int b, int c){
-
-  return ((a + b) > c && (a + c) > b && (b + c) > a);
-}
-if (isTriangle(a, b, c))
+bool IsTriangle(int a1, int b1, int c1)// создём функцию которая возвращает либо true либо false
 {
-  Console.WriteLine("Да");
+  return ((a1 + b1) > c1) && ((a1 + c1) > b1) && ((b1 + c1) > a1);// делаем проверку на неравенство сторон и возращаем 
+}
+
+if (IsTriangle(a, b, c))// проверяем, если результат работы функции будет 
+{
+  Console.WriteLine($"Треугольник со сторнами {a}, {b}, {c} может существовать");// true
 }else
 {
-  Console.WriteLine("Нет");
+  Console.WriteLine($"Треугольник со сторнами {a}, {b}, {c} не может существовать");// false
 }
